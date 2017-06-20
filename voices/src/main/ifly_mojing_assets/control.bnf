@@ -1,0 +1,39 @@
+#BNF+IAT 1.0 UTF-8;
+!grammar control;
+!slot <action>;
+!slot <deviceName>;
+!slot <adjust>;
+!slot <position>;
+!slot <up>;
+!slot <lup>;
+!slot <fan>;
+!slot <light>;
+!slot <down>;
+!slot <ldown>;
+!slot <control>
+
+!start <Start>;
+<Start>:<control>|<start2>|<start3>|<start4>|<start5>;
+
+<control>:[魔镜][魔镜你好]<action><deviceName>;
+<action>:打开!id(1)|启动!id(1)|开启!id(1)|开!id(1)|关闭!id(2)|关掉!id(2)|关了!id(2)|关!id(2);
+<deviceName>:离子风!id(101)|阅读灯!id(102)|氛围灯!id(103);
+
+<start2>:[<deviceName>]([<fan>]<up>[一点|一些]|[<light>](<up>|<lup>)[一点|一些]);
+<up>:调大|提升|提高|调高;
+<lup>:亮|调亮;
+<fan>:风|风力|风扇;
+<light>:灯|灯光|亮度;
+
+<start3>:[<deviceName>]([<fan>]<down>[一点|一些]|[<light>](<down>|<ldown>)[一点|一些]);
+<down>:调暗|减小|调低|降低;
+<ldown>:暗|调暗;
+
+
+<start4>:[魔镜][魔镜你好][<deviceName>]<adjust><position>[档];
+<adjust>:调节|调到|开到|打到;
+<position>:1|2|3|4|5|0|两|最大|最小;
+
+<start5>:(附近|周边|旁边|身边[的])<nearby>;
+<nearby>:超市|银行|饭店|餐馆|餐厅|KTV|k t v|超市|医院|宾馆|美食|公交站|网吧|电影院;
+

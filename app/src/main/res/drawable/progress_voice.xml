@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- background -->
+    <item
+        android:id="@android:id/background"
+        android:drawable="@drawable/loading_voice_default">
+    </item>
+    <!-- progress -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <nine-patch android:src="@drawable/loading_voice_active" />
+        </clip>
+    </item>
+    <!-- second progress -->
+
+
+</layer-list>

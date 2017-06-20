@@ -1,0 +1,118 @@
+<resources>
+    <string name="voice_app_name">voice plugin</string>
+    <string name="type_noresult1">sorry，i can not understand!</string>
+    <string name="type_noresult2">please try again</string>
+    <string name="type_nodevice">no device</string>
+    <string name="type_music">music</string>
+    <string name="type_music_label1">please start music first</string>
+    <string name="type_music_label2">music is playing</string>
+    <string name="type_music_label3">no resourses</string>
+    <string name="type_music_label4">no resourses</string>
+    <string name="type_music_next">next song</string>
+    <string name="type_music_next_label">the next song is playing</string>
+    <string name="type_music_pre">previous song</string>
+    <string name="type_music_pre_label">the previous song is playing</string>
+    <string name="type_music_random">random broadcast</string>
+    <string name="type_music_random_label">playing at random</string>
+    <string name="type_music_pause">pause</string>
+    <string name="type_music_pause_label">is pausing</string>
+    <string name="type_music_continue">continue</string>
+    <string name="type_music_continue_label">is continuing</string>
+    <string name="type_music_stop">stop</string>
+    <string name="type_music_stop_label">is stopping</string>
+    <string name="type_music_exit">close</string>
+    <string name="type_music_exit_label">is closing</string>
+    <string name="type_music_noresourse">no resourses</string>
+
+    <string name="type_music_volume">volume</string>
+    <string name="type_music_volume_louder">+</string>
+    <string name="type_music_volume_louder_label">sound is increasing</string>
+    <string name="type_music_volume_softer">-</string>
+    <string name="type_music_volume_softer_label">sound is decreasing</string>
+    <string name="type_music_volume_mute">mute</string>
+    <string name="type_music_volume_mute_label">is muting</string>
+    <string name="type_music_volume_mutecancale">-1</string>
+    <string name="type_music_volume_mutecancle_label">unmute</string>
+
+    <string name="type_setting">Setting</string>
+    <string name="type_setting_success">setting success</string>
+
+    <string name="type_device_open">open</string>
+    <string name="type_device_close">close</string>
+    <string name="type_device_up">up</string>
+    <string name="type_device_down">down</string>
+    <string name="type_device_lup">lup</string>
+    <string name="type_device_ldown">ldown</string>
+
+    <string name="type_device_fan">fan</string>
+
+    <string name="type_device_readlight">readinglight</string>
+
+    <string name="type_device_atmolight">atmolight</string>
+
+    <string name="type_app_open">open</string>
+    <string name="type_app_close">close</string>
+    <string name="type_app_label1">About to open</string>
+    <string name="type_app_label2">Not Installed</string>
+
+    <string name="type_adjust_readlight_label1">You can say to me:close reading lamp!</string>
+    <string name="type_adjust_readlight_label2">Reading lamp only four level</string>
+
+    <string name="type_adjust_fan_label1">You can say to me:close ion fan!</string>
+    <string name="type_adjust_fan_label2">Ion fan only four level</string>
+    <string name="tts_ok">OK</string>
+
+    <string name="type_phone_label1">the phone is dialing</string>
+
+    <string name="type_error_norecord">no record</string>
+    <string name="type_error_recordfail">record fail</string>
+
+    <string name="type_updown_label1">please open the device</string>
+    <string name="type_updown_label2">already is the largest</string>
+    <string name="type_updown_label3">already is the smallest</string>
+    <string name="type_updown_label4">I do not understand</string>
+
+    <string name="type_nearby_noinfo">no information nearby</string>
+    <string name="type_nearby_nomessage">no message nearby</string>
+    <string name="type_nearby_nonet">network instability</string>
+    <string name="network_connect_timeout">Network connection timeout</string>
+    <string name="network_recording_out">The recording should not exceed 60 seconds</string>
+
+    <string name="type_tips_label">you can say like this:</string>
+    <string name="voice_tips_title_call">Video Call</string>
+    <string name="voice_tips_title_calendar">Calendar</string>
+    <string name="voice_tips_title_remind">Remind</string>
+    <string name="voice_tips_title_weather">Weather</string>
+    <string name="voice_tips_title_music">Music</string>
+    <string name="voice_tips_title_control">Intelligent Control</string>
+    <string name="voice_tips_title_near">Life periphery</string>
+    <string name="voice_tips_title_cooking">Cooking</string>
+    <string name="voice_tips_title_app">App</string>
+    <string name="voice_tips_title_comic">Crosstalk Pieces</string>
+    <string name="voice_tips_title_stock">Stock</string>
+    <string name="voice_tips_title_poetry">Poetry</string>
+    <string name="voice_tips_title_talk">Talk</string>
+
+    <string name="voice_tips_content_call">\"Call my grandpa\"</string>
+    <string name="voice_tips_content_calendar">\"What day is Valentine\'s Day?\"</string>
+    <string name="voice_tips_content_remind">\"Remind me to meet tomorrow at four o\'clock\"</string>
+    <string name="voice_tips_content_weather">\"What about the weather tomorrow?\"</string>
+    <string name="voice_tips_content_music">\"Play Andy Lau of the immersed water\"</string>
+    <string name="voice_tips_content_control">\"Turn on the reading light0\"</string>
+    <string name="voice_tips_content_near">\"Help me find a nearby restaurant\"</string>
+    <string name="voice_tips_content_cooking">\"Pork how to do it?\"</string>
+    <string name="voice_tips_content_app">\"Open the music\"</string>
+    <string name="voice_tips_content_comic">\"To paragraph comic dialogue\"</string>
+    <string name="voice_tips_content_stock">\"Bao Qian Li of shares\"</string>
+    <string name="voice_tips_content_poetry">\"The bright sun will fall behind the hill\"</string>
+    <string name="voice_tips_content_talk">\"Who are you?\"</string>
+
+    <string name="voice_alert_message_downloading">Voice Resources Downloading...</string>
+    <string name="voice_cancel">Cancel</string>
+
+    <!-- 语音资源下载-->
+    <string name="voice_not_resource_title">Message</string>
+    <string name="voice_not_resource">Didn\'t find  voice resources,Please try again!</string>
+    <string name="voice_confirm">confirm</string>
+
+</resources>

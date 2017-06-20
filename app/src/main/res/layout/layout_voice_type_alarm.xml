@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="500dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/type_item_alarm_bg"
+        android:layout_height="240dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="闹钟"
+            android:id="@+id/tv_title"
+            android:textColor="@android:color/white"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:textSize="@dimen/sp_32"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8:00"
+            android:id="@+id/tv_time"
+            android:textSize="@dimen/sp_60"
+            android:textColor="@android:color/white"
+            android:layout_above="@+id/tv_type"
+            android:layout_marginLeft="45dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="星期五  "
+            android:id="@+id/tv_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="50dp"
+            android:textSize="@dimen/sp_24"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="闹钟"
+            android:id="@+id/tv_type"
+
+            android:layout_marginLeft="50dp"
+            android:textSize="@dimen/sp_24"
+            android:textColor="@android:color/white"
+            android:layout_above="@+id/tv_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_enable"
+            android:layout_alignBottom="@+id/tv_time"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/typealarm_text_selector"
+            android:layout_marginBottom="15dp" />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,118 @@
+<resources>
+    <string name="voice_app_name">语音plus</string>
+    <string name="type_noresult1">对不起，您的意思我不大明白</string>
+    <string name="type_noresult2">我不大明白您的意思，请再说一遍</string>
+    <string name="type_nodevice">没有找到这个设备，请重试</string>
+    <string name="type_music">音乐</string>
+    <string name="type_music_label1">请先启动音乐</string>
+    <string name="type_music_label2">音乐正在播放中</string>
+    <string name="type_music_label3">对不起，找不到对应的资源，请先启动音乐</string>
+    <string name="type_music_label4">无音乐资源</string>
+    <string name="type_music_next">下一首</string>
+    <string name="type_music_next_label">正在播放下一首</string>
+    <string name="type_music_pre">上一首</string>
+    <string name="type_music_pre_label">正在播放上一首</string>
+    <string name="type_music_random">随机播放</string>
+    <string name="type_music_random_label">正在随机播放</string>
+    <string name="type_music_pause">暂停</string>
+    <string name="type_music_pause_label">正在暂停</string>
+    <string name="type_music_continue">继续</string>
+    <string name="type_music_continue_label">正在继续</string>
+    <string name="type_music_stop">停止</string>
+    <string name="type_music_stop_label">正在停止</string>
+    <string name="type_music_exit">关闭</string>
+    <string name="type_music_exit_label">正在关闭</string>
+    <string name="type_music_noresourse">对不起，找不到对应的资源</string>
+
+    <string name="type_music_volume">音量</string>
+    <string name="type_music_volume_louder">+</string>
+    <string name="type_music_volume_louder_label">声音正在增大</string>
+    <string name="type_music_volume_softer">-</string>
+    <string name="type_music_volume_softer_label">声音正在减小</string>
+    <string name="type_music_volume_mute">关闭</string>
+    <string name="type_music_volume_mute_label">正在静音</string>
+    <string name="type_music_volume_mutecancale">-1</string>
+    <string name="type_music_volume_mutecancle_label">已取消静音</string>
+
+    <string name="type_setting">设置</string>
+    <string name="type_setting_success">设置成功</string>
+
+    <string name="type_device_open">open</string>
+    <string name="type_device_close">close</string>
+    <string name="type_device_up">up</string>
+    <string name="type_device_down">down</string>
+    <string name="type_device_lup">lup</string>
+    <string name="type_device_ldown">ldown</string>
+
+    <string name="type_device_fan">fan</string>
+
+    <string name="type_device_readlight">readinglight</string>
+
+    <string name="type_device_atmolight">atmolight</string>
+
+    <string name="type_app_open">open</string>
+    <string name="type_app_close">close</string>
+    <string name="type_app_label1">正在打开</string>
+    <string name="type_app_label2">没有安装</string>
+
+    <string name="type_adjust_readlight_label1">可以直接对我说:关闭阅读灯</string>
+    <string name="type_adjust_readlight_label2">阅读灯最大只有四档</string>
+
+    <string name="type_adjust_fan_label1">可以直接对我说:关闭离子风扇</string>
+    <string name="type_adjust_fan_label2">离子风扇最大只有四档</string>
+    <string name="tts_ok">好的</string>
+
+    <string name="type_phone_label1">正在拨号</string>
+
+    <string name="type_error_norecord">无录音</string>
+    <string name="type_error_recordfail">录音失败</string>
+
+    <string name="type_updown_label1">请先把设备打开</string>
+    <string name="type_updown_label2">已经是最大了</string>
+    <string name="type_updown_label3">已经是最小了</string>
+    <string name="type_updown_label4">我不太明白</string>
+
+    <string name="type_nearby_noinfo">没有找到团购信息</string>
+    <string name="type_nearby_nomessage">附近没有找到需要的信息</string>
+    <string name="type_nearby_nonet">网络好像不太稳定哦</string>
+    <string name="network_connect_timeout">网络不太稳定,请再试一试呢</string>
+    <string name="network_recording_out">您说的太久了，请不要超过一分钟</string>
+
+    <string name="type_tips_label">您可以这样说:</string>
+    <string name="voice_tips_title_call">视频通话</string>
+    <string name="voice_tips_title_calendar">日历</string>
+    <string name="voice_tips_title_remind">提醒</string>
+    <string name="voice_tips_title_weather">查询天气</string>
+    <string name="voice_tips_title_music">音乐</string>
+    <string name="voice_tips_title_control">智能控制</string>
+    <string name="voice_tips_title_near">生活周边</string>
+    <string name="voice_tips_title_cooking">烹饪</string>
+    <string name="voice_tips_title_app">找应用</string>
+    <string name="voice_tips_title_comic">相声小品</string>
+    <string name="voice_tips_title_stock">股票</string>
+    <string name="voice_tips_title_poetry">诗歌</string>
+    <string name="voice_tips_title_talk">随便聊聊</string>
+
+    <string name="voice_tips_content_call">\"打电话给爷爷\"</string>
+    <string name="voice_tips_content_calendar">\"情人节是哪一天\"</string>
+    <string name="voice_tips_content_remind">\"提醒我明天下午四点开会\"</string>
+    <string name="voice_tips_content_weather">\"明天的天气怎么样\"</string>
+    <string name="voice_tips_content_music">\"播放刘德华的忘情水\"</string>
+    <string name="voice_tips_content_control">\"打开阅读灯\"</string>
+    <string name="voice_tips_content_near">\"帮我查找附近的餐馆\"</string>
+    <string name="voice_tips_content_cooking">\"红烧肉怎么做\"</string>
+    <string name="voice_tips_content_app">\"打开音乐\"</string>
+    <string name="voice_tips_content_comic">\"来段相声\"</string>
+    <string name="voice_tips_content_stock">\"保千里的股票\"</string>
+    <string name="voice_tips_content_poetry">\"白日依山尽\"</string>
+    <string name="voice_tips_content_talk">\"你是谁\"</string>
+
+    <string name="voice_alert_message_downloading">语音资源下载中...</string>
+    <string name="voice_cancel">取消</string>
+
+    <!-- 语音资源下载-->
+    <string name="voice_not_resource_title">提示</string>
+    <string name="voice_not_resource">没有发现可用的资源,请检查网络重试</string>
+    <string name="voice_confirm">确定</string>
+
+</resources>

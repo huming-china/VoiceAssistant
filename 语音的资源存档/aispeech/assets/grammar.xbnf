@@ -1,0 +1,111 @@
+$DIGIT = (1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0);
+
+$MEDIA_SIMPLE_PLAY_RANDOM_CMD = (随机播放)/action="random"/[音乐 | 歌曲];
+$MEDIA_SIMPLE_PLAY_NEXT_CMD = [播放 | 唱 | 放 | 播 | 换| 听](下一 | 下面一 | 后一 | 后面一)/action="next"/(首 | 曲);
+$MEDIA_SIMPLE_PLAY_PRE_CMD =  [播放 | 唱 | 放 | 播 | 换| 听](上一 | 上面一 | 前一 | 前面一)/action="prev"/(首 | 曲);
+$MEDIA_SIMPLE_PLAY_RESUME_CMD =((继续)[(音乐)|(播放)[歌曲 | 音乐]]|(播放))/action="resume"/;
+$MEDIA_SIMPLE_PLAY_PAUSE_CMD = ((暂停)[(音乐)|(播放)[歌曲 | 音乐]])/action="pause"/;
+$MEDIA_SIMPLE_PLAY_STOP_CMD =  ((停止)[(音乐)|(播放)[歌曲 | 音乐]])/action="stop"/;
+$MEDIA_CMD = (($MEDIA_SIMPLE_PLAY_RANDOM_CMD) | ($MEDIA_SIMPLE_PLAY_NEXT_CMD) | ($MEDIA_SIMPLE_PLAY_PRE_CMD ) | ($MEDIA_SIMPLE_PLAY_RESUME_CMD) | ($MEDIA_SIMPLE_PLAY_PAUSE_CMD) |($MEDIA_SIMPLE_PLAY_STOP_CMD))/domain="localmusic"/;
+
+$VOLUME_UP = (增大 | 调大 | 调高 | 升高 | 增加 | 大[一]点 );
+$VOLUME_UP2 = (大声)(点|一点);
+$VOLUME_MAX = 最大;
+$VOLUME_DOWN = (减小 | 调小 | 调低 | 降低 | 小[一]点 | 减少 );
+$VOLUME_DOWN2 = (小声)(点|一点);
+$VOLUME_MIN = 最小;
+$VOLUME_NAME = (音量 | 声音 | 音响| 声);
+$VOLUME_MUTE_NAME = (静音);
+$VOLUME_MUTE_ON = (打开 | 开启);
+$VOLUME_MUTE_OFF = (关闭 | 解除 | 取消 | 停止);
+$VOLUME_UP_CMD = (($VOLUME_UP $VOLUME_NAME) | ($VOLUME_NAME $VOLUME_UP) | ($VOLUME_UP2))/action="louder"/;
+$VOLUME_DOWN_CMD = (($VOLUME_DOWN $VOLUME_NAME) | ($VOLUME_NAME $VOLUME_DOWN) | ($VOLUME_DOWN2))/action="softer"/;
+$VOLUME_MAX_CMD = (($VOLUME_MAX $VOLUME_NAME) | ($VOLUME_NAME $VOLUME_MAX))/action="max"/;
+$VOLUME_MIN_CMD = (($VOLUME_MIN $VOLUME_NAME) | ($VOLUME_NAME $VOLUME_MIN))/action="min"/;
+$VOLUME_MUTE_ON_CMD = (($VOLUME_MUTE_NAME) | ($VOLUME_MUTE_ON $VOLUME_MUTE_NAME)
+                    | ($VOLUME_MUTE_NAME $VOLUME_MUTE_ON))/action="mute_on"/ ;
+$VOLUME_MUTE_OFF_CMD = (($VOLUME_MUTE_OFF $VOLUME_MUTE_NAME)
+                    | ($VOLUME_MUTE_NAME $VOLUME_MUTE_OFF))/action="mute_off"/ ;
+$VOLUME_CMD = (($VOLUME_UP_CMD) | ($VOLUME_DOWN_CMD) | ($VOLUME_MAX_CMD) | ($VOLUME_MIN_CMD)| ($VOLUME_MUTE_ON_CMD) | ($VOLUME_MUTE_OFF_CMD))/domain="localvolume"/;
+
+$SMART_NAME_FAN=([净]离子风[扇]|风扇)/k="name",v="fan"/;
+$SMART_NAME_READING_LIGHT=(阅读灯)/k="name",v="readinglight"/;
+$SMART_NAME_ATMO_LIGHT=(氛围灯)/k="name",v="atmolight"/;
+
+$SMART_UP_LIGHT1=[再](调亮|亮)[一][点]/action="lup"/;
+$SMART_UP_LIGHT2=(增大 | 调大 | 调高 | 升高 | 增加 | 大|提高 )[一][点];
+$SMART_NAME1 = (亮度)/action="lup"/;
+$SMART_UP_LIGHT_CMD=[将][把][$SMART_NAME_READING_LIGHT][$SMART_NAME_ATMO_LIGHT](($SMART_NAME1)($SMART_UP_LIGHT2)|($SMART_UP_LIGHT2)($SMART_NAME1)|($SMART_NAME1)($SMART_UP_LIGHT1)|$SMART_UP_LIGHT1);
+
+$SMART_DOWN_LIGHT1=[再](调暗|暗)[一][点]/action="ldown"/;
+$SMART_DOWN_LIGHT2=(减小 | 调小 | 调低 | 降低 | 减少 | 小 )[一][点];
+$SMART_NAME2 = (亮度)/action="ldown"/;
+$SMART_DOWN_LIGHT_CMD=[把][将][$SMART_NAME_READING_LIGHT][$SMART_NAME_ATMO_LIGHT](($SMART_NAME2)($SMART_DOWN_LIGHT2)|($SMART_DOWN_LIGHT2)($SMART_NAME2)|($SMART_NAME2)($SMART_DOWN_LIGHT1)|$SMART_DOWN_LIGHT1);
+
+$SMART_UP=[再](增大 | 调大 | 调高 | 升高 | 增加 | 大 )[一][点]/action="up"/;
+$SMART_DOWN=(减小 | 调小 | 调低 | 降低 | 减少 | 小 )[一][点]/action="down"/;
+$SMART_UP_DOWN_CMD=[把][将][$SMART_NAME_FAN][$SMART_NAME_READING_LIGHT][$SMART_NAME_ATMO_LIGHT]($SMART_UP)|($SMART_DOWN);
+
+$SMART_CMD = (($SMART_UP_LIGHT_CMD)|($SMART_DOWN_LIGHT_CMD)|($SMART_UP_DOWN_CMD))/domain="updown"/;
+
+
+$TAP_POSITION_DIGIT_NUM = (($DIGIT|两|最大|最小)/k="position"/);
+$TAP_POSITION_FAN=([净]离子风[扇]|风扇|风速|风力)/k="name",v="fan"/;
+$TAP_POSITION_READING_LIGHT=(阅读灯|亮度)/k="name",v="readinglight"/;
+$TAP_POSITION_NAMES = ($TAP_POSITION_FAN | $TAP_POSITION_READING_LIGHT );
+$TAP_POSITION_ADJUST=(调节|调|开)[到|成|至];
+$TAP_POSITION_CMD=[把|请把|将]($TAP_POSITION_NAMES)($TAP_POSITION_ADJUST)(($TAP_POSITION_DIGIT_NUM)[档][位])/domain="adjust"/;
+
+
+#- 打开关闭智能设备 -#
+$CONTROL_ACTION_PREFIX_01 = ([请](把 | 将) | 请);
+$CONTROL_OPEN_ACTION_PREFIX = (打开 | 进入 | 转到 | 开启 | 启动|开)/action="open"/;
+$CONTROL_CLOSE_ACTION_PREFIX = (关闭 | 关上 | 合上 | 关掉 | 结束 | 退出|关了)/action="close"/;
+$CONTROL_OPEN_CMD1=[$CONTROL_ACTION_PREFIX_01]($SMART_NAME_FAN|$SMART_NAME_READING_LIGHT|$SMART_NAME_ATMO_LIGHT)($CONTROL_OPEN_ACTION_PREFIX);
+$CONTROL_OPEN_CMD2=[$CONTROL_ACTION_PREFIX_01]($CONTROL_OPEN_ACTION_PREFIX)($SMART_NAME_FAN|$SMART_NAME_READING_LIGHT|$SMART_NAME_ATMO_LIGHT);
+$CONTROL_CLOSE_CMD1=[$CONTROL_ACTION_PREFIX_01]($SMART_NAME_FAN|$SMART_NAME_READING_LIGHT|$SMART_NAME_ATMO_LIGHT)($CONTROL_CLOSE_ACTION_PREFIX);
+$CONTROL_CLOSE_CMD2=[$CONTROL_ACTION_PREFIX_01]($CONTROL_CLOSE_ACTION_PREFIX)($SMART_NAME_FAN|$SMART_NAME_READING_LIGHT|$SMART_NAME_ATMO_LIGHT);
+$CONTROL_CMD=($CONTROL_OPEN_CMD1|$CONTROL_OPEN_CMD2|$CONTROL_CLOSE_CMD1|$CONTROL_CLOSE_CMD2)/domain="control"/;
+#- end打开关闭智能设备 -#
+
+#联系人数据源
+$CONTACTS = (爸爸|妈妈|爷爷|奶奶)/k="name"/;
+
+
+#综合联系人名和号码数据源(酌情考虑是否添加电话号码的支持)
+$CONTACT_OR_NUMBER = ($CONTACTS);
+
+#打电话领域说法列举
+$CALL_CONTACT_CMD1 = [打电话给|打给]($CONTACT_OR_NUMBER);
+$CALL_CONTACT_CMD2 = 给($CONTACT_OR_NUMBER)打电话;
+$CALL_CONTACT_CMD3 = 拨打($CONTACT_OR_NUMBER)[的电话];
+$CALL_CONTACT_CMD4 = [帮我](接|拨|打)通($CONTACT_OR_NUMBER)[的电话];
+$CALL_CONTACT_CMD5 = 呼叫($CONTACT_OR_NUMBER);
+$CALL_CONTACT_CMD_ALL = ($CALL_CONTACT_CMD1 | $CALL_CONTACT_CMD2 | $CALL_CONTACT_CMD3 | $CALL_CONTACT_CMD4 | $CALL_CONTACT_CMD5 );
+$DOMAIN_CALL_OUTPUT = ($CALL_CONTACT_CMD_ALL)/domain="phone"/;
+
+$NEAR_NAME=(银行|饭店|餐馆|餐厅|KTV|超市|医院|宾馆|美食|公交站|网吧|电影院)/k="name"/;
+$NEAR_OPT=[帮我][我要][查找][搜索][旁边|周边|附近[的]]($NEAR_NAME);
+$NEAR_CMD=$NEAR_OPT/domain="near"/;
+
+$GROUPON_NAME=(美食|KTV|火锅)/k="name"/;
+$GROUPON_OPT=[帮我][我][想][要](团购)[旁边|周边|附近[的]][$GROUPON_NAME];
+$GROUPON_CMD=($GROUPON_OPT)/domain="groupon"/;
+
+$DATASOURCE_APP = #APPNAME#;
+$DATASOURCE_APPX = ($DATASOURCE_APP)/k="name"/;
+$APP_OPEN_ACTION_PREFIX = (打开 | 进入 | 转到 | 开启 | 启动|开)/action="open"/;
+$APP_CLOSE_ACTION_PREFIX = (关闭 | 合上 | 关掉 | 结束 | 退出|关了)/action="close"/;
+$APP_NAME_ACTION = (应用程序 | 程序 | 应用);
+$APP_ACTION_PREFIX_01 = ([请](把 | 将) | 请);
+$APP_OPEN_CMD1 = [$APP_ACTION_PREFIX_01]($APP_OPEN_ACTION_PREFIX)[$APP_NAME_ACTION]($DATASOURCE_APPX);
+$APP_OPEN_CMD2 = [$APP_ACTION_PREFIX_01][$APP_NAME_ACTION]($DATASOURCE_APPX)($APP_OPEN_ACTION_PREFIX);
+$APP_OPEN_CMD3 = [$APP_ACTION_PREFIX_01]($APP_OPEN_ACTION_PREFIX)($DATASOURCE_APPX)[$APP_NAME_ACTION];
+$APP_CLOSE_CMD1 = [$APP_ACTION_PREFIX_01]($APP_CLOSE_ACTION_PREFIX)[$APP_NAME_ACTION]($DATASOURCE_APPX);
+$APP_CLOSE_CMD2 = [$APP_ACTION_PREFIX_01][$APP_NAME_ACTION]($DATASOURCE_APPX)($APP_CLOSE_ACTION_PREFIX);
+$APP_CLOSE_CMD3 = [$APP_ACTION_PREFIX_01]($APP_CLOSE_ACTION_PREFIX)($DATASOURCE_APPX)[$APP_NAME_ACTION];
+$APP_CMD = (($APP_OPEN_CMD1) | ($APP_OPEN_CMD2) | ($APP_OPEN_CMD3) | ($APP_CLOSE_CMD1) | ($APP_CLOSE_CMD2) | ($APP_CLOSE_CMD3))/domain="app"/;
+
+$MESSAGE =($GROUPON_CMD)|($SMART_CMD) | ($GROUPON_CMD)|($NEAR_CMD)|($CONTROL_CMD) | ($APP_CMD) |($TAP_POSITION_CMD) | ($DOMAIN_CALL_OUTPUT) | ($MEDIA_CMD) | ($VOLUME_CMD);
+
+( \<s\> (  $MESSAGE  ) \<\/s\> )

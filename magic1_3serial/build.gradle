@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    task deleteOldJar(type: Delete) {
+        delete 'build/outputs/test.jar'
+    }
+
+    task exportJar(type: Copy) {
+        from('build/intermediates/bundles/release/')
+        into('build/libs/')
+        include('classes.jar','libs/voiceRouter.jar')
+        //rename ('classes.jar', 'voiceRouter_core1.3.jar')
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs' //this way we can find the .aar file in libs folder
+    }
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile(name: 'serial-release', ext: 'aar')
+    compile 'com.android.support:appcompat-v7:23.4.0'
+
+}

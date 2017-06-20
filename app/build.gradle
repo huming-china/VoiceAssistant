@@ -1,0 +1,110 @@
+apply plugin: 'com.android.library'
+
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+def projectname = "mojing"
+
+android {
+
+    compileSdkVersion 23
+    buildToolsVersion '25.0.2'
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.6.4"
+        // Stops the Gradle plugin’s automatic rasterization of vectors
+        generatedDensities = []
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
+            shrinkResources true
+            libraryVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.aar')) {
+                        def fileName = "${projectname}_voicesui_${releaseTime()}_v${defaultConfig.versionName}.aar"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+    }
+
+    productFlavors {
+    }
+    // Flag to tell aapt to keep the attribute ids around
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    sourceSets {
+        main {
+            if(projectname=='mojing') {
+                manifest.srcFile 'src/main/mojing_AndroidManifest.xml'
+            }else if(projectname=='shengjing'){
+                manifest.srcFile 'src/main/shengjing_AndroidManifest.xml'
+            }
+            jniLibs.srcDirs = ['libs', projectname + "_libs"]
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs' //this way we can find the .aar file in libs folder
+    }
+}
+
+    dependencies {
+        compile fileTree(include: ['*.jar'], dir: 'libs')
+        if (projectname == "xiaoxi") {
+            compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
+            compile fileTree(include: ['*.jar'], dir: 'xiaoxi_libs')
+        }else if(projectname == "mojing"){
+            compile(name: 'serial-release', ext: 'aar')
+            compile 'com.jude:easyrecyclerview:4.2.6'
+            compile(name: 'musicLib_170215', ext: 'aar')
+        }else if(projectname == "shengjing"){
+            compile(name: 'serial-release', ext: 'aar')
+            compile 'com.jude:easyrecyclerview:4.2.6'
+            compile(name: 'musicLib-shj-1702161411', ext: 'aar')
+        }
+        compile project(':voices')
+
+        compile(name: 'vitamio-debug', ext: 'aar')
+        //compile(name: 'calendar-release', ext: 'aar')
+        compile(name: 'clock_2016-12-15_v2.1.2', ext: 'aar')
+        compile(name: 'chatlib-release', ext: 'aar')
+        compile(name: 'calendar_magiclampzlb_20170113_v0.0.2', ext: 'aar')
+
+//        compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.0.2'
+
+        compile 'org.greenrobot:eventbus:3.0.0'
+        compile 'com.android.support:appcompat-v7:23.4.0'
+        compile 'com.lantouzi.wheelview:library:1.1.2'
+        compile 'com.zhy:okhttputils:2.6.2'
+        compile project(path: ':voices')
+        compile project(path: ':voices')
+    }
+

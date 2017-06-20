@@ -1,0 +1,2 @@
+include ':voices', ':commonLib', ':testaudio', 'app', 'test','magic1_0serial'
+

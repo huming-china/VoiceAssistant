@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+//ai:思必驰 xf:讯飞
+//mojing shendeng xiaoxi
+//def voicesName="ifly_shengjing";
+def voicesName="ai_mojing";
+def voicesLibs=voicesName+"_libs";
+android {
+    compileSdkVersion 23
+    buildToolsVersion '25.0.2'
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 15
+        versionName "1.6.4"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled false
+            zipAlignEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            libraryVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.aar')) {
+                        def fileName = "${voicesName}_voices_${releaseTime()}_v${defaultConfig.versionName}.aar"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+    }
+
+    sourceSets {
+        main{
+            jniLibs.srcDirs = ['libs',voicesLibs]
+            assets.srcDirs = ['assets','src/'+voicesName+'/assets']
+        }
+    }
+
+}
+
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    //compile 'com.zhy:okhttputils:2.3.8'
+    compile 'com.lantouzi.wheelview:library:1.1.2'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile(name: 'clock_2016-12-15_v2.1.2', ext: 'aar')
+    compile project(':commonLib')
+}
